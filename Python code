@@ -1,0 +1,82 @@
+orders = []
+menu = ["Latte", "Frappe", "Americano", "Matcha Latte"]
+final = 0
+
+
+
+#add_on function 
+def add_on(total1):
+  order = input("What else would you like to add on: ")
+  quantity = int(input(("How many would you like: ")))
+  whip = input(("Would you like whip cream on: "))
+  if whip == "Yes":
+    quantity_whip = int(input(("How many would you like whip cream on: ")))
+  else:
+    quantity_whip = 0
+
+  
+  price_whip = 2
+  if order == "Latte":
+    price = 3
+    add_ons = (price * quantity + price_whip * quantity_whip) 
+    
+  elif order == "Frappe":
+    price = 4
+    add_ons = price * quantity + price_whip * quantity_whip
+
+  elif order == "Americano":
+    price = 5
+    add_ons = price * quantity + price_whip * quantity_whip
+
+  elif order == "Matcha Latte":
+    price = 6
+    add_ons = price * quantity + price_whip * quantity_whip
+  x = 0
+  x += add_ons
+  final = x + total1
+  print(f'The total would be ${final}.')
+  orders.append(order)
+
+  
+#Main
+print("Welcome to 123Coffee.")
+name = input("How may I address you: ")
+print("Hi, " + name + ".")
+print(menu)
+order = input(("What drink would you like: "))
+quantity = int(input(("How many " + order + " would you like: ")))
+whip = input(("Would you like whip cream on: "))
+if whip == "Yes":
+  quantity_whip = int(input(("How many "+ order + " would you like whip cream on: ")))
+else:
+  quantity_whip = 0
+
+
+#Pricing, calculation 
+price_whip = 2
+if order == "Latte":
+    price = 3
+    total1 = price * quantity + price_whip * quantity_whip
+elif order == "Frappe":
+    price = 4
+    total1 = price * quantity + price_whip * quantity_whip
+elif order == "Americano":
+    price = 5
+    total1 = price * quantity + price_whip * quantity_whip
+elif order == "Matcha Latte":
+    price = 6
+    total1 = price * quantity + price_whip * quantity_whip
+
+
+
+orders.append(order)
+
+
+add_ons = input("Would you like to add anything else: ")
+if add_ons == "Yes":
+  add_on(total1)
+else:
+  print(f'The total would be ${total1}.')
+
+#Display all orders
+print(orders)
